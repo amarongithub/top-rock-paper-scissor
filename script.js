@@ -7,11 +7,13 @@ function getComputerChoice() {
   return choice[randomIndex];
 }
 
-function playRound(playerSelection, computerSelection, gameTurn) {
+function playRound(playerSelection, computerSelection) {
+  // if (playerSelection === computerSelection) {
+  //   return `${
+  //     gameTurn === 5 ? "It's a tie. Game Over!" : "It's a tie, try again."
+  //   }`;
   if (playerSelection === computerSelection) {
-    return `${
-      gameTurn === 5 ? "It's a tie. Game Over!" : "It's a tie, try again."
-    }`;
+    return "It's a tie."
   } else if (playerSelection === "paper" && computerSelection === "rock") {
     return `Player wins as paper wins over rock.`;
   } else if (playerSelection === "paper" && computerSelection === "scissors") {
@@ -28,15 +30,15 @@ function playRound(playerSelection, computerSelection, gameTurn) {
 }
 
 function game() {
-  for (let gameTurn = 1; gameTurn <= 5; gameTurn++) {
+  // for (let gameTurn = 1; gameTurn <= 5; gameTurn++) {
     // const playerSelection = prompt("Enter rock, paper, scissors").toLowerCase();
     const playerSelection = getComputerChoice();
     const computerSelection = getComputerChoice();
-    const result = playRound(playerSelection, computerSelection, gameTurn);
+    const result = playRound(playerSelection, computerSelection);
     console.log(
       `Player chose ${playerSelection} and computer chose ${computerSelection}  \n${result}`
     );
-  }
+  // }
 }
 
 game();
